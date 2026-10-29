@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="慈濟大學經營管理學系網站設計 AI 協作對話紀錄與學習心得。">
+  <title>AI 協作紀錄｜慈濟大學經營管理學系系網設計</title>
+  <style>
+    :root {
+      --bg: #fffafc;
+      --surface: #ffffff;
+      --rose: #a94c70;
+      --rose-deep: #803453;
+      --rose-soft: #faeaf0;
+      --rose-border: #f0d4df;
+      --ink: #343039;
+      --muted: #6e6670;
+      --shadow: 0 12px 36px rgba(115, 54, 79, .07);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; font-family: "Noto Sans TC", "Microsoft JhengHei", "PingFang TC", sans-serif; background: var(--bg); color: var(--ink); line-height: 1.85; }
+    a { color: var(--rose-deep); }
+    a:focus-visible, button:focus-visible { outline: 3px solid #d77b9e; outline-offset: 3px; }
+    .container { width: min(100% - 44px, 960px); margin-inline: auto; }
+    .topline { background: var(--rose-deep); height: 5px; }
+    header { padding: 26px 0 18px; }
+    .brand { letter-spacing: .08em; font-size: .87rem; font-weight: 700; color: var(--rose-deep); }
+    .hero { padding: 62px 0 58px; background: radial-gradient(ellipse at 85% 15%, #f9dce6 0, transparent 48%), linear-gradient(125deg,#fff5f8,#fffafc); border-bottom: 1px solid var(--rose-border); }
+    .eyebrow { display: inline-block; padding: 5px 13px; background: white; color: var(--rose); border: 1px solid var(--rose-border); border-radius: 50px; font-size: .84rem; letter-spacing: .11em; font-weight: 700; }
+    h1 { font-size: clamp(2rem, 5vw, 3rem); letter-spacing: .065em; margin: 18px 0 10px; line-height: 1.4; color: var(--rose-deep); }
+    .lead { max-width: 670px; font-size: 1.04rem; color: var(--muted); margin: 0 0 25px; }
+    .meta { display: flex; flex-wrap: wrap; gap: 10px 20px; font-size: .91rem; color: var(--muted); }
+    .meta strong { color: var(--ink); }
+    main { padding: 38px 0 70px; }
+    .note { background: white; border-left: 4px solid #cf82a1; border-radius: 0 12px 12px 0; padding: 15px 20px; color: var(--muted); font-size: .92rem; margin: 0 0 30px; box-shadow: var(--shadow); }
+    .section { padding: 30px clamp(20px, 4vw, 42px); margin-bottom: 21px; background: var(--surface); border: 1px solid #f1e4e9; border-radius: 19px; box-shadow: var(--shadow); scroll-margin-top: 20px; }
+    .section h2 { display: flex; align-items: center; gap: 12px; font-size: 1.27rem; line-height: 1.5; color: var(--rose-deep); margin: 0 0 24px; }
+    .step-number { flex: 0 0 auto; display: inline-grid; place-items: center; width: 32px; height: 32px; border-radius: 50%; background: var(--rose-soft); color: var(--rose-deep); font-size: .84rem; }
+    .dialog { margin: 16px 0; }
+    .speaker { display: inline-block; font-weight: 700; font-size: .83rem; margin-bottom: 7px; letter-spacing: .03em; }
+    .speaker.me { color: #84506a; }
+    .speaker.ai { color: #5c6671; }
+    .bubble { padding: 16px 19px; border-radius: 12px; margin: 0; }
+    .dialog.user .bubble { background: #fff1f6; border: 1px solid #f7dbe5; }
+    .dialog.assistant .bubble { background: #f7f7f9; border: 1px solid #eaebee; }
+    .bubble p { margin: 0 0 10px; }
+    .bubble p:last-child { margin-bottom: 0; }
+    ul { margin: 8px 0; padding-left: 25px; }
+    li { padding: 3px 0; }
+    code { overflow-wrap: anywhere; font-size: .9em; border-radius: 5px; background: #f5ecf0; padding: 2px 6px; }
+    .reflection p { margin: 0 0 15px; }
+    .reflection p:last-child { margin-bottom: 0; }
+    .footer { padding: 26px 0 38px; border-top: 1px solid var(--rose-border); color: var(--muted); text-align: center; font-size: .86rem; }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px; }
+    button { font: inherit; background: var(--rose-deep); color: white; border: 1px solid var(--rose-deep); padding: 9px 22px; border-radius: 999px; cursor: pointer; }
+    button:hover { background: #6d2945; }
+    .ghost { background: #fff; color: var(--rose-deep); }
+    .ghost:hover { background: var(--rose-soft); }
+    @media (max-width: 600px) { .container { width: min(100% - 28px, 960px); } .hero { padding: 43px 0; } .section { padding: 23px 18px; } .section h2 { font-size: 1.13rem; } }
+    @media print { body { background: #fff; } .hero { padding: 22px 0; } .section { break-inside: avoid; box-shadow: none; border-color: #ddd; margin-bottom: 14px; } .actions { display: none; } .container { width: 100%; max-width: none; } main { padding: 15px 0; } }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <div class="topline" aria-hidden="true"></div>
+  <header class="container"><div class="brand">慈濟大學 ｜ 經營管理學系網站設計</div></header>
+  <section class="hero" aria-labelledby="page-title">
+    <div class="container">
+      <span class="eyebrow">WEB DESIGN / AI COLLABORATION</span>
+      <h1 id="page-title">系網工程師 · AI 協作紀錄</h1>
+      <p class="lead">從網站架構、日系粉色視覺設計到頁面連結修正，記錄使用 ChatGPT 協助設計慈濟大學經營管理學系系網的過程與心得。</p>
+      <div class="meta"><span><strong>設計主題：</strong>慈濟大學經營管理學系系網頁</span><span><strong>協作工具：</strong>ChatGPT</span><span><strong>整理日期：</strong>2026 年 10 月</span></div>
+      <div class="actions"><button type="button" onclick="window.print()">列印或另存 PDF</button><button class="ghost" type="button" onclick="document.getElementById('record').scrollIntoView({behavior:'smooth'})">閱讀對話紀錄</button></div>
+    </div>
+  </section>
+  <main id="record" class="container">
+    <p class="note">本頁依據先前實際協作主題整理為問答摘要，並非逐字聊天紀錄。GitHub 發布內容為操作指引，不表示本網站已實際上線。</p>
+    <section class="section" id="section-1">
+      <h2><span class="step-number">01</span>網站初步規劃</h2>
+      <div class="dialog user"><span class="speaker me">我提出的需求</span><div class="bubble"><p>請幫我為慈濟大學經營管理學系設計一個新的系所網頁，並參考原本系所網站的內容。希望網站具有正式、專業的形象，且 HTML、CSS 和 JavaScript 都能整合在網頁檔案中。</p></div></div>
+      <div class="dialog assistant"><span class="speaker ai">ChatGPT 的建議</span><div class="bubble"><p>建議將網站分成系所介紹、教育目標、課程特色及學生作品等區塊。使用 HTML 建立網站架構，CSS 負責視覺設計，JavaScript 增加互動效果，讓網站更完整。</p></div></div>
+    </section>
+    <section class="section" id="section-2">
+      <h2><span class="step-number">02</span>調整網站設計風格</h2>
+      <div class="dialog user"><span class="speaker me">我提出的需求</span><div class="bubble"><p>請幫我將網站改成專業學術又帶有可愛 Q 版元素的設計。</p></div></div>
+      <div class="dialog assistant"><span class="speaker ai">ChatGPT 的建議</span><div class="bubble"><p>保留正式系網的內容架構，加入柔和色彩、圓角區塊、卡片式排版及簡單的互動效果，兼顧專業性與親切感。</p></div></div>
+      <div class="dialog user"><span class="speaker me">我再次調整需求</span><div class="bubble"><p>我想要粉色系的風格，並希望參考日本設計相關科系的網站，整體簡單、簡約一點。</p></div></div>
+      <div class="dialog assistant"><span class="speaker ai">ChatGPT 的建議</span><div class="bubble"><p>將網站調整為低飽和粉色搭配白色背景，運用日系簡約設計中的留白、整齊排版與柔和配色，減少多餘裝飾。</p></div></div>
+    </section>
+    <section class="section" id="section-3">
+      <h2><span class="step-number">03</span>建立網站檔案架構</h2>
+      <div class="dialog user"><span class="speaker me">我提出的需求</span><div class="bubble"><p>老師要求網站至少有兩個頁面，分別是 <code>index.html</code>（系所介紹）及 <code>studentworks.html</code>（學生作品），所有圖片與影片都放在 <code>graph</code> 資料夾內，請幫我重新製作。</p></div></div>
+      <div class="dialog assistant"><span class="speaker ai">ChatGPT 的建議</span><div class="bubble"><ul><li><strong>index.html：</strong>系所介紹首頁，包含系所特色、教育目標及相關介紹。</li><li><strong>studentworks.html：</strong>學生作品展示頁，預留未來新增作品、照片及影片的空間。</li><li><strong>graph：</strong>集中存放網站使用的圖片及影片素材。</li></ul><p>兩個頁面使用相對路徑連結，CSS 與 JavaScript 寫在各自 HTML 檔案內，方便後續編輯及發布。</p></div></div>
+    </section>
+    <section class="section" id="section-4">
+      <h2><span class="step-number">04</span>檢查網站是否正常運作</h2>
+      <div class="dialog user"><span class="speaker me">我提出的需求</span><div class="bubble"><p>可以再幫我確認一次這個網站確定是可以使用的嗎？</p></div></div>
+      <div class="dialog assistant"><span class="speaker ai">ChatGPT 的建議</span><div class="bubble"><p>說明應檢查 HTML 基本架構、頁面導覽、圖片路徑及響應式版面設計，並建議使用 Chrome 或 Edge 開啟 HTML 進行測試。</p></div></div>
+    </section>
+    <section class="section" id="section-5">
+      <h2><span class="step-number">05</span>解決跨頁連結問題</h2>
+      <div class="dialog user"><span class="speaker me">我遇到的問題</span><div class="bubble"><p>我的首頁 <code>index.html</code> 點不進學生作品頁面。</p></div></div>
+      <div class="dialog assistant"><span class="speaker ai">ChatGPT 的建議</span><div class="bubble"><p>確認兩個 HTML 檔案放在同一層資料夾，並將首頁連結設定為：</p><p><code>&lt;a href="./studentworks.html"&gt;學生作品&lt;/a&gt;</code></p><p>學生作品頁返回首頁則使用：</p><p><code>&lt;a href="./index.html"&gt;返回首頁&lt;/a&gt;</code></p><p>檢查檔名與大小寫是否一致，避免因相對路徑錯誤出現 404。</p></div></div>
+    </section>
+    <section class="section" id="section-6">
+      <h2><span class="step-number">06</span>GitHub 網站上架</h2>
+      <div class="dialog user"><span class="speaker me">我提出的問題</span><div class="bubble"><p>我要上傳 GitHub，是要上傳哪一些檔案？</p></div></div>
+      <div class="dialog assistant"><span class="speaker ai">ChatGPT 的建議</span><div class="bubble"><p>需上傳 <code>index.html</code>、<code>studentworks.html</code>，以及整個 <code>graph</code> 資料夾，並保留原本的資料夾結構。</p><p>接著將 Repository 設為 Public，進入 Settings → Pages，選擇 Deploy from a branch，Branch 選擇 main、資料夾選擇 /(root) 並儲存。發布成功後，以 GitHub Pages 提供的網址檢查兩頁能否正常瀏覽。</p></div></div>
+    </section>
+    <section class="section reflection" id="section-7">
+      <h2><span class="step-number">07</span>AI 協作心得</h2>
+      <p>這次系網頁設計過程中，我主要利用 ChatGPT 協助規劃網站架構、設計視覺風格、產生 HTML 程式碼，以及解決網頁連結的問題。</p>
+      <p>一開始對 HTML 和 CSS 的運用還不太熟悉，因此透過不斷提出需求及修改，逐漸了解網頁的基本架構，以及檔案名稱、資料夾位置和相對路徑的重要性。</p>
+      <p>在設計方面，我希望網站不只是完成作業，而是真的具有系所網站的專業形象，所以選擇粉色系搭配日式簡約風格，讓畫面更加清楚，也保有自己的設計特色。</p>
+      <p>透過這次 AI 協作，我學習到如何將自己的設計想法轉換成實際的網頁，也了解遇到程式問題時，可以透過檢查與修改逐步改善。未來也希望能加入自己拍攝的照片、影片和學生作品，讓網站內容更加完整。</p>
+    </section>
+  </main>
+  <footer class="footer"><div class="container">慈濟大學經營管理學系 ｜ 網頁視覺設計 AI 協作紀錄</div></footer>
+</body>
+</html>
